@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  app_1:
+    build:
+     context: ./app_1
+     dockerfile: Dockerfile
+
+
+  app_2:
+    build:
+     context: ./app_2
+     dockerfile: Dockerfile
+
+
+  app_3:
+    environment:
+      - SERVICE_1_URL=http://app_1:5001
+      - SERVICE_2_URL=http://app_2:5002
+
+    build:
+     context: ./app_3
+     dockerfile: Dockerfile
+
+    depends_on:
+      - app_1
+      - app_2
+
+    ports:
+      - "5003:5003"
