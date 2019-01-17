@@ -110,3 +110,6 @@ venv.bak/
 .sublime*
 
 .DS*
+
+credentials.json
+token.json
