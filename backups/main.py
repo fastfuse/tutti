@@ -1,5 +1,4 @@
 import datetime
-import os
 
 from utils import upload_file, make_tarfile
 
