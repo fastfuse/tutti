@@ -72,6 +72,6 @@ def make_tarfile(name, *source, extra=None):
 
     with tarfile.open(tar_name, mode) as tar:
         for item in source:
-            tar.add(item)
+            tar.add(item, arcname=item.split('/')[-1])
 
     return tar_name
