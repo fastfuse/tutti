@@ -1,0 +1,25 @@
+# Aliases
+
+alias ls='ls -GFh'
+alias ll="ls -l"
+alias la="ls -la"
+
+# IP; TODO: fix output format (newline w/o echo)
+alias myip="curl ifconfig.me; echo"
+
+# create directory and cd into it
+function mkd() { mkdir -p "$@" && cd "$_"; }
+
+# handy tree
+function lt() {
+if [[ $1 ]];
+ then tree -LC "$@";
+ else tree -LC 1;
+ fi;
+}
+
+# HTTP server on port 8888
+# TODO: adopt for python 2 and fix "timeout"
+function share() {
+    echo Your IP: $( ifconfig en0 | awk '$1 == "inet" {print $2}') && python3 -m http.server 8888;
+}
